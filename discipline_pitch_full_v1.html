@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discipline Pitch | Train. Track. Get Seen.</title>
+<style>
+:root{--bg:#07100c;--panel:#0d1912;--panel2:#12231a;--line:#21372a;--text:#f3f7f4;--muted:#9caf9f;--green:#5ee28a;--green2:#2ebc63;--danger:#ff7272;--gold:#ffd166}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 80% 0%,#173c25 0,#07100c 35%);color:var(--text);min-height:100vh}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,16,12,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:15px 5%}
+.logo{font-weight:900;font-size:21px}.logo span{color:var(--green)}
+.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a:hover{color:#fff}
+.menu{display:none;background:none;border:0;color:#fff;font-size:24px}
+.container{width:min(1120px,90%);margin:auto}
+.hero{padding:90px 0 75px;display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+.badge{display:inline-block;border:1px solid #31513b;color:var(--green);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.6px}
+h1{font-size:clamp(45px,7vw,78px);line-height:.96;margin:18px 0}
+h1 span{color:var(--green)}
+.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{border:0;border-radius:11px;padding:13px 18px;font-weight:800}
+.primary{background:var(--green);color:#061008}.secondary{background:#132119;border:1px solid var(--line);color:#fff}
+.hero-card{background:linear-gradient(145deg,#12251a,#0a120e);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:0 20px 70px #0008}
+.pitch{height:330px;border:2px solid #4b8c5d;border-radius:15px;position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,#153820 0,#153820 48px,#183e23 48px,#183e23 96px)}
+.pitch:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#70a878;transform:translateX(-50%)}
+.circle{position:absolute;width:100px;height:100px;border:2px solid #70a878;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.ball{position:absolute;width:18px;height:18px;background:#fff;border-radius:50%;left:63%;top:42%;box-shadow:0 0 0 5px #ffffff22}
+.goal{position:absolute;width:48px;height:115px;border:2px solid #70a878;top:50%;transform:translateY(-50%)}.g1{left:-2px}.g2{right:-2px}
+section{padding:70px 0}.section-head{margin-bottom:25px}.section-head h2{font-size:34px}.section-head p{color:var(--muted);margin-top:8px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:22px}
+.icon{font-size:27px;margin-bottom:14px}.card h3{margin-bottom:8px}.card p{color:var(--muted);line-height:1.5;font-size:14px}
+.dashboard{background:#08110c;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:15px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:var(--panel2);border-radius:13px;padding:16px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:27px;margin-top:6px}
+.progress{height:10px;background:#203026;border-radius:99px;overflow:hidden;margin-top:12px}.bar{height:100%;width:64%;background:var(--green);border-radius:99px}
+.row{display:flex;justify-content:space-between;gap:15px;align-items:center}.pill{font-size:12px;color:var(--green);background:#173122;border:1px solid #2b5739;padding:6px 9px;border-radius:99px}
+.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:15px}.tab{white-space:nowrap;background:#111d16;border:1px solid var(--line);color:var(--muted);padding:9px 13px;border-radius:9px}.tab.active{background:var(--green);color:#061008;border-color:var(--green)}
+.workouts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.workout{border:1px solid var(--line);background:#101c15;border-radius:14px;padding:17px}.workout h3{margin-bottom:7px}.workout p{font-size:13px;color:var(--muted);line-height:1.5}.workout .meta{margin-top:12px;display:flex;justify-content:space-between;color:var(--green);font-size:12px}
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.balance{font-size:38px;font-weight:900;margin:5px 0 16px}.money-form{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}.money-form input,.money-form select{width:100%;padding:11px;background:#09110d;border:1px solid var(--line);border-radius:9px;color:#fff;outline:none}.transactions{max-height:210px;overflow:auto}.tx{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #1b2b21;font-size:14px}.plus{color:var(--green)}.minus{color:var(--danger)}
+.chart{height:180px;display:flex;align-items:end;gap:8px;padding-top:15px}.barc{flex:1;background:var(--green);opacity:.85;border-radius:5px 5px 0 0;min-height:10px}
+.goalgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.goalcard{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.goalcard input{width:100%;background:#09110d;color:#fff;border:1px solid var(--line);padding:9px;border-radius:8px;margin-top:10px}
+.scouting{display:grid;grid-template-columns:1fr 1fr;gap:15px}.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0;color:var(--muted)}.check input{accent-color:var(--green);margin-top:4px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.price{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}.price.featured{border-color:var(--green);box-shadow:0 0 0 1px #5ee28a33}.price h3{font-size:20px}.price .cost{font-size:35px;font-weight:900;margin:15px 0}.price ul{list-style:none;color:var(--muted);line-height:2}.price li:before{content:"✓ ";color:var(--green);font-weight:900}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#718274;font-size:12px}
+.toast{position:fixed;right:20px;bottom:20px;background:#173122;border:1px solid #3b754d;color:#fff;padding:13px 16px;border-radius:10px;transform:translateY(120px);transition:.25s;z-index:50}.toast.show{transform:translateY(0)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid3,.stats,.goalgrid,.pricing{grid-template-columns:1fr 1fr}.money-grid,.scouting{grid-template-columns:1fr}.workouts{grid-template-columns:1fr}.navlinks{display:none}.menu{display:block}}
+@media(max-width:520px){.grid3,.stats,.goalgrid,.pricing{grid-template-columns:1fr}.money-form{grid-template-columns:1fr}.hero{padding-top:55px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#home">Discipline <span>Pitch</span></a>
+  <button class="menu" onclick="toggleNav()">☰</button>
+  <div class="navlinks" id="navlinks">
+    <a href="#training">Training</a><a href="#dashboard">Dashboard</a><a href="#money">Money</a><a href="#scouting">Scouting</a><a href="#plans">Plans</a>
+  </div>
+</nav>
+
+<main id="home">
+<div class="container">
+<section class="hero">
+  <div>
+    <span class="badge">THE PLAYER DEVELOPMENT HUB</span>
+    <h1>Train with purpose. <span>Play with confidence.</span></h1>
+    <p>Discipline Pitch puts training, progress tracking, goals, scouting preparation, and your personal money tracker in one place.</p>
+    <div class="actions"><a class="btn primary" href="#dashboard">Enter Dashboard</a><a class="btn secondary" href="#training">Explore Training</a></div>
+  </div>
+  <div class="hero-card"><div class="pitch"><div class="circle"></div><div class="ball"></div><div class="goal g1"></div><div class="goal g2"></div></div></div>
+</section>
+
+<section id="training">
+  <div class="section-head"><h2>Training library</h2><p>Build your game across the areas that matter.</p></div>
+  <div class="tabs">
+    <button class="tab active" onclick="filterWorkouts('all',this)">All</button>
+    <button class="tab" onclick="filterWorkouts('technical',this)">Technical</button>
+    <button class="tab" onclick="filterWorkouts('shooting',this)">Shooting</button>
+    <button class="tab" onclick="filterWorkouts('speed',this)">Speed & Agility</button>
+    <button class="tab" onclick="filterWorkouts('fitness',this)">Fitness</button>
+  </div>
+  <div class="workouts" id="workouts">
+    <article class="workout" data-cat="technical"><h3>First-Touch Circuit</h3><p>Control passes from different angles, then play the next action quickly.</p><div class="meta"><span>25 min</span><span>Technical</span></div></article>
+    <article class="workout" data-cat="shooting"><h3>Finishing Under Pressure</h3><p>Work on receiving, setting, and finishing from several areas around the box.</p><div class="meta"><span>30 min</span><span>Shooting</span></div></article>
+    <article class="workout" data-cat="speed"><h3>Change-of-Direction</h3><p>Short acceleration and controlled direction changes with the ball.</p><div class="meta"><span>20 min</span><span>Speed</span></div></article>
+    <article class="workout" data-cat="fitness"><h3>Match Engine</h3><p>Intervals combining movement, recovery, and ball work. Stay hydrated and take breaks.</p><div class="meta"><span>25 min</span><span>Fitness</span></div></article>
+    <article class="workout" data-cat="technical"><h3>Weak-Foot Touches</h3><p>Progress from simple touches to passing combinations using the weaker foot.</p><div class="meta"><span>15 min</span><span>Technical</span></div></article>
+    <article class="workout" data-cat="shooting"><h3>Curve & Placement</h3><p>Practice controlled shots with focus on technique, balance, and placement.</p><div class="meta"><span>25 min</span><span>Shooting</span></div></article>
+  </div>
+</section>
+</div>
+
+<section class="dashboard" id="dashboard">
+<div class="container">
+<section>
+  <div class="section-head"><h2>Player dashboard</h2><p>Your starting command center.</p></div>
+  <div class="panel">
+    <div class="stats">
+      <div class="stat"><small>Training sessions</small><strong id="sessions">12</strong></div>
+      <div class="stat"><small>Minutes trained</small><strong id="minutes">310</strong></div>
+      <div class="stat"><small>Goals completed</small><strong id="goalsDone">7</strong></div>
+      <div class="stat"><small>Weekly streak</small><strong>4 🔥</strong></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="row"><div><h3>Weekly training goal</h3><small class="muted">4 of 6 sessions completed</small></div><span class="pill">67%</span></div>
+    <div class="progress"><div class="bar"></div></div>
+  </div>
+</section>
+</div>
+</section>
+
+<div class="container">
+<section id="money">
+  <div class="section-head"><h2>Personal money tracker</h2><p>A simple tracker for money earned, spent, and saved. This demo stores data in this browser.</p></div>
+  <div class="money-grid">
+    <div class="panel">
+      <small class="muted">Current balance</small>
+      <div class="balance" id="balance">$0.00</div>
+      <div class="money-form">
+        <input id="amount" type="number" min="0" step="0.01" placeholder="Amount">
+        <select id="type"><option value="income">Money earned</option><option value="expense">Money spent</option><option value="saved">Money saved</option></select>
+        <button class="btn primary" onclick="addTransaction()">Add</button>
+      </div>
+      <div class="stats" style="margin-top:15px">
+        <div class="stat"><small>Earned</small><strong id="earned">$0</strong></div>
+        <div class="stat"><small>Spent</small><strong id="spent">$0</strong></div>
+        <div class="stat"><small>Saved</small><strong id="saved">$0</strong></div>
+        <div class="stat"><small>Entries</small><strong id="entries">0</strong></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="row"><h3>Recent activity</h3><button class="tab" onclick="clearTransactions()">Clear</button></div>
+      <div class="transactions" id="transactions"><p class="muted" style="padding-top:20px">No transactions yet.</p></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="row"><h3>Money movement</h3><span class="muted">Recent entries</span></div>
+    <div class="chart" id="chart"></div>
+  </div>
+</section>
+
+<section id="goals">
+  <div class="section-head"><h2>Goals</h2><p>Keep your next targets visible.</p></div>
+  <div class="goalgrid">
+    <div class="goalcard"><h3>Technical</h3><p class="muted">Complete 3 touch sessions</p><input type="checkbox" onchange="toast('Technical goal updated!')"> Mark complete</div>
+    <div class="goalcard"><h3>Shooting</h3><p class="muted">Finish 100 quality reps</p><input type="checkbox" onchange="toast('Shooting goal updated!')"> Mark complete</div>
+    <div class="goalcard"><h3>Consistency</h3><p class="muted">Train 5 days this week</p><input type="checkbox" onchange="toast('Consistency goal updated!')"> Mark complete</div>
+  </div>
+</section>
+
+<section id="scouting">
+  <div class="section-head"><h2>Get scout-ready</h2><p>Build the pieces coaches and scouts can actually evaluate.</p></div>
+  <div class="scouting">
+    <div class="panel">
+      <h3>Player profile checklist</h3>
+      <label class="check"><input type="checkbox"> Position and playing style clearly written</label>
+      <label class="check"><input type="checkbox"> Strong match clips organized</label>
+      <label class="check"><input type="checkbox"> Training and competition experience listed</label>
+      <label class="check"><input type="checkbox"> Contact information checked</label>
+      <button class="btn primary" onclick="toast('Profile checklist saved for this session.')">Save progress</button>
+    </div>
+    <div class="panel">
+      <h3>Highlight-video tips</h3>
+      <p class="muted" style="line-height:1.7;margin-top:10px">Lead with your strongest moments, keep clips easy to follow, show context around plays, and make sure the video represents your actual game.</p>
+      <div class="actions"><button class="btn secondary" onclick="toast('Video planner coming next!')">Open video planner</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="section-head"><h2>Membership</h2><p>Placeholder pricing from the original project idea. Nothing here charges money yet.</p></div>
+  <div class="pricing">
+    <div class="price"><h3>Starter</h3><div class="cost">$3<span class="muted">/week</span></div><ul><li>Training library</li><li>Basic goals</li><li>Player dashboard</li></ul><button class="btn secondary" onclick="toast('Starter selected — checkout is not connected.')">Choose Starter</button></div>
+    <div class="price featured"><h3>Pro</h3><div class="cost">$5<span class="muted">/week</span></div><ul><li>Everything in Starter</li><li>Progress tracking</li><li>Scouting checklist</li></ul><button class="btn primary" onclick="toast('Pro selected — checkout is not connected.')">Choose Pro</button></div>
+    <div class="price"><h3>Annual</h3><div class="cost">$120<span class="muted">/year</span></div><ul><li>Full dashboard</li><li>All training tools</li><li>Future premium features</li></ul><button class="btn secondary" onclick="toast('Annual selected — checkout is not connected.')">Choose Annual</button></div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer><div class="container">Discipline Pitch • Prototype • Built to be expanded</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='disciplinePitchTransactions';
+let tx=JSON.parse(localStorage.getItem(KEY)||'[]');
+function money(n){return '$'+Number(n).toFixed(2)}
+function save(){localStorage.setItem(KEY,JSON.stringify(tx));renderMoney()}
+function addTransaction(){
+ const amount=Number(document.getElementById('amount').value);
+ const type=document.getElementById('type').value;
+ if(!amount||amount<=0){toast('Enter an amount first.');return}
+ tx.unshift({amount,type,date:new Date().toLocaleDateString()});
+ document.getElementById('amount').value='';
+ save();toast('Transaction added.');
+}
+function clearTransactions(){if(confirm('Clear all money tracker entries?')){tx=[];save();toast('Transactions cleared.')}}
+function renderMoney(){
+ let earned=0,spent=0,saved=0;
+ tx.forEach(t=>{if(t.type==='income')earned+=t.amount;if(t.type==='expense')spent+=t.amount;if(t.type==='saved')saved+=t.amount});
+ document.getElementById('earned').textContent=money(earned);
+ document.getElementById('spent').textContent=money(spent);
+ document.getElementById('saved').textContent=money(saved);
+ document.getElementById('entries').textContent=tx.length;
+ document.getElementById('balance').textContent=money(earned-spent-saved);
+ const box=document.getElementById('transactions');
+ box.innerHTML=tx.length?tx.slice(0,12).map(t=>`<div class="tx"><span>${t.type==='income'?'Money earned':t.type==='expense'?'Money spent':'Money saved'}<small class="muted"> • ${t.date}</small></span><b class="${t.type==='income'?'plus':'minus'}">${t.type==='income'?'+':'-'}${money(t.amount)}</b></div>`).join(''):'<p class="muted" style="padding-top:20px">No transactions yet.</p>';
+ const chart=document.getElementById('chart');
+ const vals=tx.slice(0,12).reverse().map(t=>Math.max(10,Math.min(100,t.amount/(Math.max(...tx.map(x=>x.amount),1))*100)));
+ chart.innerHTML=vals.length?vals.map(v=>`<div class="barc" style="height:${v}%"></div>`).join(''):'<div class="muted">Add transactions to see your graph.</div>';
+}
+function filterWorkouts(cat,el){
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');
+ document.querySelectorAll('.workout').forEach(x=>x.style.display=(cat==='all'||x.dataset.cat===cat)?'block':'none');
+}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function toggleNav(){document.getElementById('navlinks').style.display=document.getElementById('navlinks').style.display==='flex'?'none':'flex'}
+renderMoney();
+</script>
+</body>
+</html>
